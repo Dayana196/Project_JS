@@ -10,17 +10,18 @@ const closeCartBtn = document.querySelector(".close-cart");
 let products = [];
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-// Cargar productos desde FakeStore API
 async function loadProducts() {
     try {
         const res = await fetch("https://fakestoreapi.com/products");
         products = await res.json();
         displayProducts(products);
+        displayStaffPicks(products);  // <-- Aquí agregas esta línea para mostrar recomendados
         renderCart();
     } catch (error) {
         productsContainer.innerHTML = "<p>Error al cargar productos 😢</p>";
     }
 }
+
 
 // Mostrar productos
 function displayProducts(items) {
@@ -42,11 +43,31 @@ function displayProducts(items) {
         productsContainer.appendChild(card);
     });
 
+    // Aquí agregas la función filterByCategory:
+    function filterByCategory(gender) {
+        let category = "";
+        if (gender === "men") category = "men's clothing";
+        else if (gender === "women") category = "women's clothing";
+
+        const filtered = products.filter(p => p.category.toLowerCase() === category);
+        displayProducts(filtered);
+    }
+
     // evento agregar al carrito
     document.querySelectorAll(".add-cart-btn").forEach(btn => {
         btn.addEventListener("click", () => addToCart(btn.dataset.id));
     });
 }
+
+function filterByCategory(gender) {
+    let category = "";
+    if (gender === "men") category = "men's clothing";
+    else if (gender === "women") category = "women's clothing";
+
+    const filtered = products.filter(p => p.category.toLowerCase() === category);
+    displayProducts(filtered);
+}
+
 
 // Agregar al carrito
 function addToCart(id) {
@@ -116,6 +137,30 @@ cartIcon.addEventListener("click", e => {
 closeCartBtn.addEventListener("click", () => {
     cartPanel.classList.remove("open"); // cerrar
 });
+
+const staffContainer = document.getElementById("staff-products");
+
+// Mostrar productos recomendados
+function displayStaffPicks(items) {
+    staffContainer.innerHTML = "";
+
+    // Puedes cambiar este filtro como quieras
+    const recommended = items.filter(p => p.price > 100).slice(0, 4);
+
+    recommended.forEach(p => {
+        const card = document.createElement("div");
+        card.classList.add("staff-card");
+        card.innerHTML = `
+      <img src="${p.image}" alt="${p.title}">
+      <div class="staff-info">
+        <h3>${p.title}</h3>
+        <p>$${p.price}</p>
+      </div>
+    `;
+        staffContainer.appendChild(card);
+    });
+}
+
 
 // Inicializar
 loadProducts();
