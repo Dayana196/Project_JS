@@ -89,8 +89,19 @@
             </div>
         </div>
     </section>
+    <!-- Productos -->
+    <section class="products-section">
+        <h2>Productos</h2>
+        <div class="products-grid" id="products"></div>
+    </section>
+
+    <script src="../JS/app.js"></script>
+
+
+
 
     <script>
+
         document.querySelector('.search-box input').addEventListener('keypress', function (e) {
             if (e.key === 'Enter') {
                 alert('Buscando: ' + this.value);
