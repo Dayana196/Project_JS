@@ -15,7 +15,7 @@ async function loadProducts() {
         const res = await fetch("https://fakestoreapi.com/products");
         products = await res.json();
         displayProducts(products);
-        displayStaffPicks(products);  // <-- Aquí agregas esta línea para mostrar recomendados
+        displayStaffPicks(products);
         renderCart();
     } catch (error) {
         productsContainer.innerHTML = "<p>Error al cargar productos 😢</p>";
@@ -43,7 +43,7 @@ function displayProducts(items) {
         productsContainer.appendChild(card);
     });
 
-    // Aquí agregas la función filterByCategory:
+
     function filterByCategory(gender) {
         let category = "";
         if (gender === "men") category = "men's clothing";
@@ -53,7 +53,7 @@ function displayProducts(items) {
         displayProducts(filtered);
     }
 
-    // evento agregar al carrito
+
     document.querySelectorAll(".add-cart-btn").forEach(btn => {
         btn.addEventListener("click", () => addToCart(btn.dataset.id));
     });
