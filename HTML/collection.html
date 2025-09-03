@@ -3,12 +3,13 @@
 
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sweet Store</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sweet Store - Collection</title>
     <link rel="stylesheet" href="../CSS/style.css" />
 </head>
 
 <body>
+
     <div class="principal">
         Free shipping on orders above $150 in sweet store
     </div>
@@ -73,64 +74,36 @@
         </div>
     </nav>
 
-    <section class="hero-section">
-        <div class="hero-content">
-            <div class="hero-text">
-                <h1>
-                    <div class="elevate">Elevate Your</div>
-                    <div class="style">Style!</div>
-                </h1>
-
-                <div class="gender-buttons">
-                    <button class="gender-btn" onclick="alert('Sección Men')">Men</button>
-                    <button class="gender-btn" onclick="alert('Sección Women')">Women</button>
-                </div>
-
-                <button class="shop-now-btn" onclick="alert('Comenzar compras')">
-                    Shop now
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <header class="staff-picks-section">
-        <h2 class="staff-title">Staff Picks</h2>
-        <p class="staff-subtitle">Our current favourites</p>
-        <div class="staff-grid" id="staff-products"></div>
-    </header>
-
-    <div class="gender-buttons-container">
-        <button type="button" onclick="goToCollection('men')">
-            <p>Men's Collection</p>
-            <img src="../IMG/Men_shirt.jpg" alt="Men" />
-        </button>
-
-        <button type="button" onclick="goToCollection('women')">
-            <p>Women's Collection</p>
-            <img src="../IMG/women_shirt.jpg" alt="Women" />
-        </button>
-    </div>
-
-    <script>
-        function goToCollection(gender) {
-            window.location.href = `collection.html?gender=${gender}`;
-        }
-    </script>
-
-    <section class="text-section">
-        <h2>Products</h2>
-        <div class="products-grid" id="products"></div>
-    </section>
+    <main>
+        <h2 id="collection-title">Loading Collection...</h2>
+        <div id="products"></div>
+    </main>
 
     <script src="../JS/app.js"></script>
 
     <script>
-        document.querySelector('.search-box input').addEventListener('keypress', function (e) {
-            if (e.key === 'Enter') {
-                alert('Buscando: ' + this.value);
+        const params = new URLSearchParams(window.location.search);
+        const gender = params.get('gender');
+
+        if (gender) {
+            document.getElementById("collection-title").textContent =
+                gender === "men" ? "Men's Collection" : "Women's Collection";
+
+            loadProducts().then(() => {
+                filterByCategory(gender);
+            });
+        } else {
+            document.getElementById("collection-title").textContent = "All Products";
+            loadProducts();
+        }
+
+        document.querySelector(".search-box input").addEventListener("keypress", function (e) {
+            if (e.key === "Enter") {
+                alert("Buscando: " + this.value);
             }
         });
     </script>
+
 </body>
 
 </html>
