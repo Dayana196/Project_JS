@@ -64,7 +64,14 @@
         <div class="nav-content">
             <ul class="nav-menu">
                 <li><button class="active" onclick="alert('Home')">Home</button></li>
-                <li><button onclick="alert('About')">About</button></li>
+                <li class="dropdown">
+                    <button>Precios</button>
+                    <ul class="submenu">
+                        <li><button onclick="alert('Mayor a $150')">Mayor $200 (USD)</button></li>
+                        <li><button onclick="alert('Menor a $150')">Menor $200 (USD)</button></li>
+                    </ul>
+                </li>
+                
                 <li><button onclick="alert('Shirts')">Shirts</button></li>
                 <li><button onclick="alert('Accessories')">Accessories</button></li>
                 <li><button onclick="alert('Technology')">Technology</button></li>
@@ -81,10 +88,6 @@
                     <div class="style">Style!</div>
                 </h1>
 
-                <div class="gender-buttons">
-                    <button class="gender-btn" onclick="alert('Sección Men')">Men</button>
-                    <button class="gender-btn" onclick="alert('Sección Women')">Women</button>
-                </div>
 
                 <button class="shop-now-btn" onclick="alert('Comenzar compras')">
                     Shop now
