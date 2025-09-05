@@ -55,11 +55,12 @@ PROJECT_JS-1
 - API REST externa (FakeStoreAPI)
 - `localStorage` para almacenamiento local
 
-## Autor
-
 ## Boceto principal (Canva)
 
 https://www.canva.com/design/DAGxX_fh-wY/2nQhzXgb23S6Cx2rTpNRng/edit?utm_content=DAGxX_fh-wY&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
+
+## Autor
+
 
 [Dayana](https://github.com/Dayana196)
 
