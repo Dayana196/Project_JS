@@ -29,7 +29,7 @@ PROJECT_JS-1
 
 ## Funcionalidades principales
 
-- **Carga dinámica de productos** mediante la API [FakeStoreAPI](https://fakestoreapi.com/).
+- **Carga dinámica de productos** mediante la API [FakeStoreAPI](https://fakestoreapi.com/products).
 - **Filtrado** de productos por precio (mayor o menor).
 - **Carrito de compras** con:
   - Añadir productos
