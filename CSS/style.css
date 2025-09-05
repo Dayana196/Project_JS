@@ -263,9 +263,7 @@ body {
     background: linear-gradient(135deg, #ff6a88, #ff9a9e);
 }
 
-.container-staff {
-    background-color: #ffffff;
-}
+
 
 .container1 {
     background-color: rgb(255, 255, 255);
@@ -273,7 +271,6 @@ body {
 
 .text-collection {
     text-align: center;
-    background-color: #ffe5ef;
     width: 100%;
     letter-spacing: 5px;
 }
@@ -282,11 +279,10 @@ body {
     font-size: 2.8rem;
     color: #7a1134;
     font-family: 'Georgia', serif;
+
 }
 
-.by-gender {
-    background-color: rgb(253, 223, 247);
-}
+
 
 .text-by {
     font-family: Arial, Helvetica, sans-serif;
@@ -318,20 +314,21 @@ body {
     letter-spacing: 6px;
 }
 
-.conta-joyas{
+.conta-joyas {
     background-color: #ffe5ef;
     text-align: center;
 }
 
-.accessories{
+.accessories {
     letter-spacing: 7px;
     font-size: 2.5rem;
     color: #7a1134;
     font-family: 'Georgia', serif;
 }
 
-.quality{
-    background-color: rgb(253, 223, 247); ;
+.quality {
+    background-color: rgb(253, 223, 247);
+    ;
     text-align: center;
     font-size: 0.6rem;
     letter-spacing: 6px;
@@ -340,9 +337,9 @@ body {
 
 .staff-picks-section {
     background-color: #ffffff;
-    padding: 100px 90px;
+    padding: 70px 90px;
     text-align: center;
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 0 auto;
 }
 
@@ -361,83 +358,113 @@ body {
     font-family: 'Georgia', serif;
 }
 
-
-#products,
 #staff-products {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 30px;
-    padding: 20px;
-    background-color: #ffffff;
-    border-radius: 10px;
+    display: flex;
+    gap: 1.8rem;
+    padding: 1rem 0;
+    flex-wrap: nowrap;
+    /* No permiten que se vayan a la siguiente línea */
 }
 
-
-.product-card,
 .staff-card {
-    background-color: rgb(248, 217, 235);
+    flex: 1 1 0;
+    /* Crecen y se encogen para ajustarse */
+    min-width: 200px;
+    /* Tamaño mínimo para cada tarjeta */
+    background-color: #fff0f6;
     border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(214, 51, 108, 0.3);
     padding: 15px;
-    box-shadow: 0 5px 15px rgb(0 0 0 / 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
     display: flex;
     flex-direction: column;
     align-items: center;
-    transition: transform 0.3s ease;
+}
+
+
+
+
+/* Contenedor de productos */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* 4 columnas iguales */
+    gap: 1.8rem;
+    padding: 1rem;
+    max-width: 1200px;
+    margin: 2rem auto;
+}
+
+
+/* Tarjeta de producto */
+.product-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
     cursor: pointer;
 }
 
-.product-card:hover,
-.staff-card:hover {
+.product-card:hover {
     transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
-
-.product-card img,
-.staff-card img {
-    width: 180px;
+/* Imagen del producto */
+.product-card img {
+    width: 100%;
     height: 180px;
     object-fit: contain;
-    border-radius: 10px;
-    margin-bottom: 15px;
+    background: #f8f8f8;
+    padding: 1rem;
 }
 
+/* Información del producto */
+.product-info {
+    padding: 1rem 1.2rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 
-.product-info h3,
-.staff-info h3 {
-    font-weight: 700;
-    font-size: 1rem;
-    margin: 0 0 10px 0;
+.product-info h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.6rem;
     color: #222;
-    text-align: center;
+    font-weight: 700;
+    min-height: 48px;
+    /* Para alinear alturas */
 }
 
-
-.product-info p,
-.staff-info p {
-    font-weight: 600;
-    font-size: 0.9rem;
-    color: #555;
-    margin: 0;
-    text-align: center;
+.product-info p {
+    font-size: 1.2rem;
+    color: #e63946;
+    /* color rojo suave */
+    font-weight: 700;
+    margin-bottom: 1rem;
 }
 
-
+/* Botón agregar al carrito */
 .add-cart-btn {
-    margin-top: auto;
-    padding: 8px 12px;
-    background-color: #e96b8b;
-    color: white;
+    background-color: #e63946;
+    color: #fff;
     border: none;
-    border-radius: 6px;
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
     font-weight: 600;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    align-self: flex-start;
 }
 
 .add-cart-btn:hover {
-    background-color: #d14c6f;
+    background-color: #a62834;
 }
-
 
 
 
@@ -455,16 +482,15 @@ body {
 }
 
 .products-grid {
-    display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 25px;
+    flex-wrap: nowrap;
 }
 
 .product-card {
     background: #fff;
     border-radius: 15px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
     transition: transform 0.3s ease;
 }
 
@@ -808,16 +834,148 @@ body {
 
 .submenu li button:hover {
     background: #f5f5f5;
-    color: #e91e63; 
+    color: #e91e63;
 }
 
-.dropdown > button {
+.dropdown>button {
     background: none;
     border: none;
     color: #000000;
     font-size: 16px;
     padding: 10px 1
 }
+
+/* Estilo para la sección de productos filtrados */
+.text-section {
+    padding: 40px 20px;
+    background: linear-gradient(to right, #fce4ec, #f8bbd0);
+    /* rosa suave */
+    text-align: center;
+    border-radius: 10px;
+    margin: 40px auto;
+    width: 90%;
+    box-shadow: 0 4px 10px rgba(255, 182, 193, 0.3);
+}
+
+/* Título de productos filtrados */
+.text-section h2 {
+    font-size: 2.5rem;
+    color: #d81b60;
+    /* rosa oscuro */
+    margin-bottom: 30px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: relative;
+}
+
+/* Subrayado decorativo */
+.text-section h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: #ec407a;
+    /* fucsia */
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+
+.staff-picks-section h1 {
+    font-size: 2.8rem;
+    /* Tamaño grande como Collection */
+    font-weight: 700;
+    color: #8a1a4a;
+    /* Color borgoña o vino */
+    font-family: 'Times New Roman', serif;
+    /* Usa la misma tipografía si quieres */
+    text-align: center;
+    /* Centrar texto */
+    margin-bottom: 0;
+    /* Sin margen extra */
+    letter-spacing: 0.1em;
+    /* Espaciado de letras si quieres igualarlo */
+    text-transform: capitalize;
+    /* Que la primera letra de cada palabra sea mayúscula */
+}
+
+.staff-picks-section h2 {
+    font-size: 1rem;
+    /* Tamaño más pequeño */
+    font-weight: 400;
+    color: #4d4d4d;
+    /* Un gris oscuro similar */
+    font-family: 'Times New Roman', serif;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 20px;
+    /* Espacio para separar */
+    letter-spacing: 5px;
+    text-transform: lowercase;
+    /* Si quieres que sea todo en minúsculas como tu subtítulo */
+}
+
+
+/* Subtítulo */
+.staff-picks-section h2 {
+    font-size: 0.9rem;
+    color: #050505;
+    /* rosa más claro */
+    margin-bottom: 30px;
+    font-weight: 400;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Grid para las tarjetas */
+.staff-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+/* Cada tarjeta */
+.staff-card {
+    background-color: #fff0f6;
+    /* rosa muy suave */
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(214, 51, 108, 0.3);
+    padding: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+
+
+/* Efecto hover en tarjetas */
+.staff-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(214, 51, 108, 0.6);
+}
+
+/* Imagen dentro de la tarjeta */
+.staff-card img {
+    max-width: 100%;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    object-fit: contain;
+    height: 180px;
+}
+
+/* Info del producto */
+.staff-info h3 {
+    font-size: 1.1rem;
+    color: #a31d59;
+    /* rosa oscuro */
+    margin: 0 0 6px;
+}
+
+.staff-info p {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #d6336c;
+    margin: 0;
+}
+
+
 
 @media (max-width: 768px) {
     .header-content {

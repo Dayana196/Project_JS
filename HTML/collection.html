@@ -65,7 +65,7 @@
         <div class="nav-content">
             <ul class="nav-menu">
                 <li><button class="active" onclick="alert('Home')">Home</button></li>
-                <li><button onclick="alert('About')">About</button></li>
+                <li><button onclick="alert('About')">Precios</button></li>
                 <li><button onclick="alert('Shirts')">Shirts</button></li>
                 <li><button onclick="alert('Accessories')">Accessories</button></li>
                 <li><button onclick="alert('Technology')">Technology</button></li>
@@ -74,35 +74,89 @@
         </div>
     </nav>
 
-    <main>
-        <h2 id="collection-title">Loading Collection...</h2>
-        <div id="products"></div>
-    </main>
 
-    <script src="../JS/app.js"></script>
+    <div id="products" class="products-grid"></div>
 
     <script>
-        const params = new URLSearchParams(window.location.search);
-        const gender = params.get('gender');
+        document.addEventListener("DOMContentLoaded", async () => {
+            const productsContainer = document.getElementById("products");
+            const urlParams = new URLSearchParams(window.location.search);
+            const gender = urlParams.get("gender");
+            const cartBadge = document.querySelector(".cart-badge");
 
-        if (gender) {
-            document.getElementById("collection-title").textContent =
-                gender === "men" ? "Men's Collection" : "Women's Collection";
+            let products = [];
+            try {
+                const res = await fetch("https://fakestoreapi.com/products");
+                products = await res.json();
+            } catch (error) {
+                productsContainer.innerHTML = "<p>Error al cargar productos 😢</p>";
+                console.error(error);
+                return;
+            }
 
-            loadProducts().then(() => {
-                filterByCategory(gender);
+            if (gender) {
+                let category = "";
+                if (gender === "men") category = "men's clothing";
+                else if (gender === "women") category = "women's clothing";
+
+                products = products.filter(p => p.category.toLowerCase() === category);
+            }
+
+            if (products.length === 0) {
+                productsContainer.innerHTML = "<p>No hay productos para mostrar.</p>";
+                return;
+            }
+
+            // Mostrar productos
+            products.forEach(p => {
+                const card = document.createElement("div");
+                card.classList.add("product-card");
+                card.innerHTML = `
+                <img src="${p.image}" alt="${p.title}">
+                <div class="product-info">
+                    <h3>${p.title}</h3>
+                    <p>$${p.price}</p>
+                    <button class="add-cart-btn" data-id="${p.id}">Agregar al carrito</button>
+                </div>
+            `;
+                productsContainer.appendChild(card);
             });
-        } else {
-            document.getElementById("collection-title").textContent = "All Products";
-            loadProducts();
-        }
 
-        document.querySelector(".search-box input").addEventListener("keypress", function (e) {
-            if (e.key === "Enter") {
-                alert("Buscando: " + this.value);
+            // Funcionalidad para agregar al carrito
+            document.querySelectorAll(".add-cart-btn").forEach(btn => {
+                btn.addEventListener("click", () => {
+                    const productId = btn.dataset.id;
+                    const product = products.find(p => p.id == productId);
+
+                    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+                    const item = cart.find(p => p.id == product.id);
+                    if (item) {
+                        item.qty++;
+                    } else {
+                        cart.push({ ...product, qty: 1 });
+                    }
+
+                    localStorage.setItem("cart", JSON.stringify(cart));
+
+                    // Actualiza contador del carrito
+                    if (cartBadge) {
+                        cartBadge.textContent = cart.length;
+                    }
+
+                    alert("Producto agregado al carrito 🛒");
+                });
+            });
+
+            // Mostrar cantidad actual en carrito (al cargar la página)
+            const currentCart = JSON.parse(localStorage.getItem("cart")) || [];
+            if (cartBadge) {
+                cartBadge.textContent = currentCart.length;
             }
         });
     </script>
+
+
 
 </body>
 

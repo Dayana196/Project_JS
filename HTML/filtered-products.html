@@ -3,12 +3,13 @@
 
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sweet Store</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sweet Store - Collection</title>
     <link rel="stylesheet" href="../CSS/style.css" />
 </head>
 
 <body>
+
     <div class="principal">
         Free shipping on orders above $150 in sweet store
     </div>
@@ -70,13 +71,12 @@
                 <li class="dropdown">
                     <button>Precios</button>
                     <ul class="submenu">
-                        <li><button onclick="window.location.href='filtered-products.html?price=greater'">Mayor $100
+                        <li><button onclick="window.location.href='filtered-products.html?price=greater'">Mayor $200
                                 (USD)</button></li>
-                        <li><button onclick="window.location.href='filtered-products.html?price=less'">Menor
-                                $100(USD)</button></li>
+                        <li><button onclick="window.location.href='filtered-products.html?price=less'">Menor $200
+                                (USD)</button></li>
                     </ul>
                 </li>
-
                 <li><button onclick="alert('Shirts')">Shirts</button></li>
                 <li><button onclick="alert('Accessories')">Accessories</button></li>
                 <li><button onclick="alert('Technology')">Technology</button></li>
@@ -85,81 +85,13 @@
         </div>
     </nav>
 
-    <section class="hero-section">
-        <div class="hero-content">
-            <div class="hero-text">
-                <h1>
-                    <div class="elevate">Elevate Your</div>
-                    <div class="style">Style!</div>
-                </h1>
-
-                <button class="shop-now-btn" onclick="alert('Comenzar compras')">
-                    Shop now
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Staff Picks corregido y bien ubicado -->
-    <div class="container-staff">
-        <header class="staff-picks-section">
-            <h1>Staff Picks</h1>
-            <h2>Our current favourites</h2>
-            <div class="staff-grid" id="staff-products"></div>
-        </header>
-    </div>
-
-    <div class="text-collection">
-        <h1 class="text-gener">Collection</h1>
-    </div>
-    <div class="by-gender">
-        <h2 class="text-by">We show you categories by gender</h2>
-    </div>
-
-    <main class="container1">
-        <div class="gender-buttons-container">
-            <button type="button" onclick="goToCollection('men')">
-                <p>Men's Collection</p>
-                <img src="../IMG/men.jpg" alt="Men" />
-            </button>
-
-            <button type="button" onclick="goToCollection('women')">
-                <p>Women's Collection</p>
-                <img src="../IMG/women.jpg" alt="Women" />
-            </button>
-
-        </div>
-    </main>
-
-    <script>
-        function goToCollection(gender) {
-            window.location.href = `collection.html?gender=${gender}`;
-        }
-    </script>
-
     <section class="text-section">
-        <h2>:3</h2>
+        <h2>Productos</h2>
         <div class="products-grid" id="products"></div>
     </section>
 
+    <script src="../JS/filtered-products.js"></script>
 
-
-    <script>
-        document.querySelector('.search-box input').addEventListener('keypress', function (e) {
-            if (e.key === 'Enter') {
-                alert('Buscando: ' + this.value);
-            }
-        });
-
-        // Prueba rápida para verificar si el div está cargado
-        const staffContainer = document.getElementById("staff-products");
-        if (!staffContainer) {
-            alert("¡No se encontró el contenedor de Staff Picks! Revisa el HTML.");
-        } else {
-            console.log("Contenedor Staff Picks encontrado correctamente.");
-        }
-    </script>
-    <script src="../JS/app.js"></script>
 </body>
 
 </html>
