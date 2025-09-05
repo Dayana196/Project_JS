@@ -363,14 +363,11 @@ body {
     gap: 1.8rem;
     padding: 1rem 0;
     flex-wrap: nowrap;
-    /* No permiten que se vayan a la siguiente línea */
 }
 
 .staff-card {
     flex: 1 1 0;
-    /* Crecen y se encogen para ajustarse */
     min-width: 200px;
-    /* Tamaño mínimo para cada tarjeta */
     background-color: #fff0f6;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(214, 51, 108, 0.3);
@@ -383,13 +380,9 @@ body {
 }
 
 
-
-
-/* Contenedor de productos */
 .products-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    /* 4 columnas iguales */
     gap: 1.8rem;
     padding: 1rem;
     max-width: 1200px;
@@ -397,7 +390,6 @@ body {
 }
 
 
-/* Tarjeta de producto */
 .product-card {
     background: #fff;
     border-radius: 12px;
@@ -414,7 +406,6 @@ body {
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
-/* Imagen del producto */
 .product-card img {
     width: 100%;
     height: 180px;
@@ -423,7 +414,6 @@ body {
     padding: 1rem;
 }
 
-/* Información del producto */
 .product-info {
     padding: 1rem 1.2rem;
     flex-grow: 1;
@@ -438,13 +428,11 @@ body {
     color: #222;
     font-weight: 700;
     min-height: 48px;
-    /* Para alinear alturas */
 }
 
 .product-info p {
     font-size: 1.2rem;
     color: #e63946;
-    /* color rojo suave */
     font-weight: 700;
     margin-bottom: 1rem;
 }
@@ -845,7 +833,6 @@ body {
     padding: 10px 1
 }
 
-/* Estilo para la sección de productos filtrados */
 .text-section {
     padding: 40px 20px;
     background: linear-gradient(to right, #fce4ec, #f8bbd0);
@@ -857,24 +844,23 @@ body {
     box-shadow: 0 4px 10px rgba(255, 182, 193, 0.3);
 }
 
-/* Título de productos filtrados */
+
 .text-section h2 {
     font-size: 2.5rem;
     color: #d81b60;
-    /* rosa oscuro */
+
     margin-bottom: 30px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     position: relative;
 }
 
-/* Subrayado decorativo */
+
 .text-section h2::after {
     content: '';
     display: block;
     width: 60px;
     height: 4px;
     background-color: #ec407a;
-    /* fucsia */
     margin: 10px auto 0;
     border-radius: 2px;
 }
@@ -882,60 +868,44 @@ body {
 
 .staff-picks-section h1 {
     font-size: 2.8rem;
-    /* Tamaño grande como Collection */
     font-weight: 700;
     color: #8a1a4a;
-    /* Color borgoña o vino */
     font-family: 'Times New Roman', serif;
-    /* Usa la misma tipografía si quieres */
     text-align: center;
-    /* Centrar texto */
     margin-bottom: 0;
-    /* Sin margen extra */
     letter-spacing: 0.1em;
-    /* Espaciado de letras si quieres igualarlo */
     text-transform: capitalize;
-    /* Que la primera letra de cada palabra sea mayúscula */
 }
 
 .staff-picks-section h2 {
     font-size: 1rem;
-    /* Tamaño más pequeño */
     font-weight: 400;
     color: #4d4d4d;
-    /* Un gris oscuro similar */
     font-family: 'Times New Roman', serif;
     text-align: center;
     margin-top: 0;
     margin-bottom: 20px;
-    /* Espacio para separar */
     letter-spacing: 5px;
     text-transform: lowercase;
-    /* Si quieres que sea todo en minúsculas como tu subtítulo */
 }
 
 
-/* Subtítulo */
 .staff-picks-section h2 {
     font-size: 0.9rem;
     color: #050505;
-    /* rosa más claro */
     margin-bottom: 30px;
     font-weight: 400;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Grid para las tarjetas */
 .staff-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 25px;
 }
 
-/* Cada tarjeta */
 .staff-card {
     background-color: #fff0f6;
-    /* rosa muy suave */
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(214, 51, 108, 0.3);
     padding: 15px;
@@ -944,14 +914,11 @@ body {
 }
 
 
-
-/* Efecto hover en tarjetas */
 .staff-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 8px 20px rgba(214, 51, 108, 0.6);
 }
 
-/* Imagen dentro de la tarjeta */
 .staff-card img {
     max-width: 100%;
     border-radius: 10px;
@@ -960,11 +927,10 @@ body {
     height: 180px;
 }
 
-/* Info del producto */
+
 .staff-info h3 {
     font-size: 1.1rem;
     color: #a31d59;
-    /* rosa oscuro */
     margin: 0 0 6px;
 }
 
@@ -973,6 +939,126 @@ body {
     font-weight: 600;
     color: #d6336c;
     margin: 0;
+}
+
+.text-gener {
+    text-align: center;
+}
+
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+main {
+    flex: 1;
+}
+
+.cont-text {
+    display: none;
+}
+
+
+
+.footer {
+    background-color: #fdeeea;
+    color: #fcb2d1;
+    padding: 40px 30px;
+    font-size: 14px;
+    box-sizing: border-box;
+    width: 100%;
+    margin-top: auto;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 180px;
+}
+
+.footer-column h3 {
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: 1.2px;
+    border-bottom: 1px solid #f8d5d1;
+    padding-bottom: 8px;
+    margin-bottom: 20px;
+    color: #f749ae;
+}
+
+.footer-column h4 {
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 1.2px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    color: #fa0baa;
+}
+
+.footer-column p {
+    line-height: 1.6;
+    margin: 5px 0;
+    color: #4e103c;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 10px;
+}
+
+.footer-column ul li a {
+    text-decoration: none;
+    color: #4e103c;
+    transition: color 0.3s ease;
+}
+
+.footer-column ul li a:hover {
+    color: #a3776d;
+}
+
+
+.icon {
+    margin-right: 8px;
+    font-size: 16px;
+    vertical-align: middle;
+    color: #c9a89f;
+}
+
+
+.social-icons {
+    margin-top: 10px;
+}
+
+.social-icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 15px;
+    filter: brightness(0) saturate(100%) invert(80%) sepia(12%) saturate(525%) hue-rotate(5deg) brightness(93%) contrast(83%);
+    cursor: pointer;
+    transition: filter 0.3s ease;
+}
+
+.social-icon:hover {
+    filter: brightness(0) saturate(100%) invert(45%) sepia(78%) saturate(2664%) hue-rotate(339deg) brightness(99%) contrast(101%);
 }
 
 

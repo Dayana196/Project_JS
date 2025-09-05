@@ -2,95 +2,151 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Sweet Store - Collection</title>
-    <link rel="stylesheet" href="../CSS/style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sweet Store - Collection</title>
+  <link rel="stylesheet" href="../CSS/style.css" />
 </head>
 
 <body>
 
-    <div class="principal">
-        Free shipping on orders above $150 in sweet store
+  <div class="principal">
+    Free shipping on orders above $150 in sweet store
+  </div>
+
+  <header class="header">
+    <div class="header-content">
+
+      <section class="bar-principal">
+        <div class="social-icons">
+          <button onclick="alert('Facebook')">
+            <img src="../ICONS/icon facebook.png" alt="Facebook" class="social-icon-img" />
+          </button>
+          <button onclick="alert('WhatsApp')">
+            <img src="../ICONS/wasap icon.png" alt="WhatsApp" class="social-icon-img" />
+          </button>
+          <button onclick="alert('Instagram')">
+            <img src="../ICONS/instagram icon.png" alt="Instagram" class="social-icon-img" />
+          </button>
+        </div>
+      </section>
+
+      <div id="cart" class="cart">
+        <button class="close-cart">✖</button>
+        <h2>Carrito de compras</h2>
+        <div id="cart-items"></div>
+        <p>Total: $<span id="cart-total">0.00</span></p>
+        <button id="clear-cart">Vaciar carrito</button>
+      </div>
+
+      <div class="logo">Sweet Store</div>
+
+      <div class="header-right">
+        <div class="search-box">
+          <input type="text" placeholder="Buscar..." />
+          <i class="fas fa-search"></i>
+        </div>
+
+        <button class="login-btn" onclick="alert('Login')">
+          <img src="../ICONS/user icons.png" alt="User" class="user-icon-img" />
+          Log in
+        </button>
+
+        <button class="cart-btn" id="cart-icon">
+          <img src="../ICONS/icon carrito shop.png" alt="Cart" class="cart-icon-img" />
+          <span class="cart-badge">0</span>
+        </button>
+      </div>
+
     </div>
+  </header>
 
-    <header class="header">
-        <div class="header-content">
+  <nav class="navigation">
+    <div class="nav-content">
+      <ul class="nav-menu">
+        <li>
+          <button onclick="window.location.href='index.html'">Home</button>
+        </li>
 
-            <section class="bar-principal">
-                <div class="social-icons">
-                    <button onclick="alert('Facebook')">
-                        <img src="../ICONS/icon facebook.png" alt="Facebook" class="social-icon-img" />
-                    </button>
-                    <button onclick="alert('WhatsApp')">
-                        <img src="../ICONS/wasap icon.png" alt="WhatsApp" class="social-icon-img" />
-                    </button>
-                    <button onclick="alert('Instagram')">
-                        <img src="../ICONS/instagram icon.png" alt="Instagram" class="social-icon-img" />
-                    </button>
-                </div>
-            </section>
+        <li class="dropdown">
+          <button>Precios</button>
+          <ul class="submenu">
+            <li>
+              <button onclick="window.location.href='filtered-products.html?price=greater'">
+                Mayor $200 (USD)
+              </button>
+            </li>
+            <li>
+              <button onclick="window.location.href='filtered-products.html?price=less'">
+                Menor $200 (USD)
+              </button>
+            </li>
+          </ul>
+        </li>
 
-            <div id="cart" class="cart">
-                <button class="close-cart">✖</button>
-                <h2>Carrito de compras</h2>
-                <div id="cart-items"></div>
-                <p>Total: $<span id="cart-total">0.00</span></p>
-                <button id="clear-cart">Vaciar carrito</button>
-            </div>
+        <li>
+          <button onclick="goToCategory('jewelery')">Jewelery</button>
+        </li>
 
-            <div class="logo">Sweet Store</div>
+        <li>
+          <button onclick="alert('electronics')">electronics</button>
+        </li>
+      </ul>
+    </div>
+  </nav>
 
-            <div class="header-right">
-                <div class="search-box">
-                    <input type="text" placeholder="Buscar..." />
-                    <i class="fas fa-search"></i>
-                </div>
+  <section class="text-section">
+    <h2>Productos</h2>
+    <div class="products-grid" id="products"></div>
+  </section>
 
-                <button class="login-btn" onclick="alert('Login')">
-                    <img src="../ICONS/user icons.png" alt="User" class="user-icon-img" />
-                    Log in
-                </button>
+  <script src="../JS/filtered-products.js"></script>
 
-                <button class="cart-btn" id="cart-icon">
-                    <img src="../ICONS/icon carrito shop.png" alt="Cart" class="cart-icon-img" />
-                    <span class="cart-badge">0</span>
-                </button>
-            </div>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
 
+      <!-- Contáctanos -->
+      <div class="footer-column">
+        <h3>CONTÁCTANOS</h3>
+        <p><span class="icon">📞</span> (+57) 3125729799</p>
+        <p>
+          <span class="icon">📍</span> Zona Franca (Santander) <br />
+          piso 6<br />
+          Anillo vial
+        </p>
+
+        <h4>SÍGUENOS EN</h4>
+        <div class="social-icons">
+          <a href="#"><img src="../ICONS/icon facebook.png" alt="Facebook" class="social-icon" /></a>
+          <a href="#"><img src="../ICONS/instagram icon.png" alt="Instagram" class="social-icon" /></a>
         </div>
-    </header>
+      </div>
 
-    <nav class="navigation">
-        <div class="nav-content">
-            <ul class="nav-menu">
-                <li>
-                    <button onclick="window.location.href='index.html'">Home</button>
-                </li>
+      <!-- Información -->
+      <div class="footer-column">
+        <h3>INFORMACIÓN</h3>
+        <ul>
+          <li><a href="#">Quiénes somos</a></li>
+          <li><a href="#">Preguntas frecuentes</a></li>
+          <li><a href="#">Nuestras políticas</a></li>
+          <li><a href="#">Políticas de privacidad</a></li>
+          <li><a href="#">Contacto</a></li>
+        </ul>
+      </div>
 
-                <li class="dropdown">
-                    <button>Precios</button>
-                    <ul class="submenu">
-                        <li><button onclick="window.location.href='filtered-products.html?price=greater'">Mayor $200
-                                (USD)</button></li>
-                        <li><button onclick="window.location.href='filtered-products.html?price=less'">Menor $200
-                                (USD)</button></li>
-                    </ul>
-                </li>
-                <li><button onclick="alert('Shirts')">Shirts</button></li>
-                <li><button onclick="alert('Accessories')">Accessories</button></li>
-                <li><button onclick="alert('Technology')">Technology</button></li>
-                <li><button onclick="alert('Jackets')">Jackets</button></li>
-            </ul>
-        </div>
-    </nav>
+      
+      <div class="footer-column">
+        <h3>MI CUENTA MAYORISTA</h3>
+        <ul>
+          <li><a href="#">Iniciar sesión</a></li>
+          <li><a href="#">Regístrame</a></li>
+          <li><a href="#">Mis pedidos</a></li>
+        </ul>
+      </div>
 
-    <section class="text-section">
-        <h2>Productos</h2>
-        <div class="products-grid" id="products"></div>
-    </section>
-
-    <script src="../JS/filtered-products.js"></script>
+    </div>
+  </footer>
 
 </body>
 

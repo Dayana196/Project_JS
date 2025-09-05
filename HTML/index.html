@@ -2,164 +2,210 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sweet Store</title>
-    <link rel="stylesheet" href="../CSS/style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sweet Store</title>
+  <link rel="stylesheet" href="../CSS/style.css" />
 </head>
 
 <body>
-    <div class="principal">
-        Free shipping on orders above $150 in sweet store
-    </div>
+  <div class="principal">
+    Free shipping on orders above $150 in sweet store
+  </div>
 
-    <header class="header">
-        <div class="header-content">
+  <header class="header">
+    <div class="header-content">
 
-            <section class="bar-principal">
-                <div class="social-icons">
-                    <button onclick="alert('Facebook')">
-                        <img src="../ICONS/icon facebook.png" alt="Facebook" class="social-icon-img" />
-                    </button>
-                    <button onclick="alert('WhatsApp')">
-                        <img src="../ICONS/wasap icon.png" alt="WhatsApp" class="social-icon-img" />
-                    </button>
-                    <button onclick="alert('Instagram')">
-                        <img src="../ICONS/instagram icon.png" alt="Instagram" class="social-icon-img" />
-                    </button>
-                </div>
-            </section>
-
-            <div id="cart" class="cart">
-                <button class="close-cart">✖</button>
-                <h2>Carrito de compras</h2>
-                <div id="cart-items"></div>
-                <p>Total: $<span id="cart-total">0.00</span></p>
-                <button id="clear-cart">Vaciar carrito</button>
-            </div>
-
-            <div class="logo">Sweet Store</div>
-
-            <div class="header-right">
-                <div class="search-box">
-                    <input type="text" placeholder="Buscar..." />
-                    <i class="fas fa-search"></i>
-                </div>
-
-                <button class="login-btn" onclick="alert('Login')">
-                    <img src="../ICONS/user icons.png" alt="User" class="user-icon-img" />
-                    Log in
-                </button>
-
-                <button class="cart-btn" id="cart-icon">
-                    <img src="../ICONS/icon carrito shop.png" alt="Cart" class="cart-icon-img" />
-                    <span class="cart-badge">0</span>
-                </button>
-            </div>
-
+      <section class="bar-principal">
+        <div class="social-icons">
+          <button onclick="alert('Facebook')">
+            <img src="../ICONS/icon facebook.png" alt="Facebook" class="social-icon-img" />
+          </button>
+          <button onclick="alert('WhatsApp')">
+            <img src="../ICONS/wasap icon.png" alt="WhatsApp" class="social-icon-img" />
+          </button>
+          <button onclick="alert('Instagram')">
+            <img src="../ICONS/instagram icon.png" alt="Instagram" class="social-icon-img" />
+          </button>
         </div>
+      </section>
+
+      <div id="cart" class="cart">
+        <button class="close-cart">✖</button>
+        <h2>Carrito de compras</h2>
+        <div id="cart-items"></div>
+        <p>Total: $<span id="cart-total">0.00</span></p>
+        <button id="clear-cart">Vaciar carrito</button>
+      </div>
+
+      <div class="logo">Sweet Store</div>
+
+      <div class="header-right">
+        <div class="search-box">
+          <input type="text" placeholder="Buscar..." />
+          <i class="fas fa-search"></i>
+        </div>
+
+        <button class="login-btn" onclick="alert('Login')">
+          <img src="../ICONS/user icons.png" alt="User" class="user-icon-img" />
+          Log in
+        </button>
+
+        <button class="cart-btn" id="cart-icon">
+          <img src="../ICONS/icon carrito shop.png" alt="Cart" class="cart-icon-img" />
+          <span class="cart-badge">0</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <nav class="navigation">
+    <div class="nav-content">
+      <ul class="nav-menu">
+        <li><button onclick="window.location.href='index.html'">Home</button></li>
+        <li class="dropdown">
+          <button>Precios</button>
+          <ul class="submenu">
+            <li><button onclick="window.location.href='filtered-products.html?price=greater'">Mayor $100 (USD)</button></li>
+            <li><button onclick="window.location.href='filtered-products.html?price=less'">Menor $100(USD)</button></li>
+          </ul>
+        </li>
+        <li><button onclick="goToCategory('jewelery')">jewelery</button></li>
+        <li><button onclick="goToCategory('electronics')">Electronics</button></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="hero-section">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1>
+          <div class="elevate">Elevate Your</div>
+          <div class="style">Style!</div>
+        </h1>
+        <button class="shop-now-btn" onclick="alert('Comenzar compras')">
+          Shop now
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Staff Picks -->
+  <div class="container-staff">
+    <header class="staff-picks-section">
+      <h1>Staff Picks</h1>
+      <h2>Our current favourites</h2>
+      <div class="staff-grid" id="staff-products"></div>
     </header>
+  </div>
 
-    <nav class="navigation">
-        <div class="nav-content">
-            <ul class="nav-menu">
-                <li>
-                    <button onclick="window.location.href='index.html'">Home</button>
-                </li>
+  <div class="text-collection">
+    <h1 class="text-gener">Collection</h1>
+  </div>
 
-                <li class="dropdown">
-                    <button>Precios</button>
-                    <ul class="submenu">
-                        <li><button onclick="window.location.href='filtered-products.html?price=greater'">Mayor $100
-                                (USD)</button></li>
-                        <li><button onclick="window.location.href='filtered-products.html?price=less'">Menor
-                                $100(USD)</button></li>
-                    </ul>
-                </li>
+  <div class="by-gender">
+    <h2 class="text-by">We show you categories by gender</h2>
+  </div>
 
-                <li><button onclick="alert('Shirts')">Shirts</button></li>
-                <li><button onclick="alert('Accessories')">Accessories</button></li>
-                <li><button onclick="alert('Technology')">Technology</button></li>
-                <li><button onclick="alert('Jackets')">Jackets</button></li>
-            </ul>
-        </div>
-    </nav>
-
-    <section class="hero-section">
-        <div class="hero-content">
-            <div class="hero-text">
-                <h1>
-                    <div class="elevate">Elevate Your</div>
-                    <div class="style">Style!</div>
-                </h1>
-
-                <button class="shop-now-btn" onclick="alert('Comenzar compras')">
-                    Shop now
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Staff Picks corregido y bien ubicado -->
-    <div class="container-staff">
-        <header class="staff-picks-section">
-            <h1>Staff Picks</h1>
-            <h2>Our current favourites</h2>
-            <div class="staff-grid" id="staff-products"></div>
-        </header>
+  <main class="container1">
+    <div class="gender-buttons-container">
+      <button type="button" onclick="goToCollection('men')">
+        <p>Men's Collection</p>
+        <img src="../IMG/men.jpg" alt="Men" />
+      </button>
+      <button type="button" onclick="goToCollection('women')">
+        <p>Women's Collection</p>
+        <img src="../IMG/women.jpg" alt="Women" />
+      </button>
     </div>
+  </main>
 
-    <div class="text-collection">
-        <h1 class="text-gener">Collection</h1>
-    </div>
-    <div class="by-gender">
-        <h2 class="text-by">We show you categories by gender</h2>
-    </div>
+  <script>
+    function goToCollection(gender) {
+      window.location.href = `collection.html?gender=${gender}`;
+    }
+  </script>
 
-    <main class="container1">
-        <div class="gender-buttons-container">
-            <button type="button" onclick="goToCollection('men')">
-                <p>Men's Collection</p>
-                <img src="../IMG/men.jpg" alt="Men" />
-            </button>
+  <script>
+    function goToCategory(category) {
+      window.location.href = `collection.html?category=${category}`;
+    }
+  </script>
 
-            <button type="button" onclick="goToCollection('women')">
-                <p>Women's Collection</p>
-                <img src="../IMG/women.jpg" alt="Women" />
-            </button>
+  <script src="../JS/app.js"></script>
+  <script src="../JS/app.js"></script>
 
+  <!-- Sección de productos -->
+  <section class="cont-text">
+    <h2>:3</h2>
+    <div class="products-grid" id="products"></div>
+  </section>
+
+  
+  <script>
+    document.querySelector('.search-box input').addEventListener('keypress', function (e) {
+      if (e.key === 'Enter') {
+        alert('Buscando: ' + this.value);
+      }
+    });
+
+    const staffContainer = document.getElementById("staff-products");
+    if (!staffContainer) {
+      alert("¡No se encontró el contenedor de Staff Picks! Revisa el HTML.");
+    } else {
+      console.log("Contenedor Staff Picks encontrado correctamente.");
+    }
+  </script>
+
+  <script src="../JS/app.js"></script>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+
+      <!-- Contáctanos -->
+      <div class="footer-column">
+        <h3>CONTÁCTANOS</h3>
+        <p><span class="icon">📞</span> (+57) 3125729799</p>
+        <p>
+          <span class="icon">📍</span> Zona Franca (Santander) <br>
+          piso 6<br>
+          Anillo vial
+        </p>
+
+        <h4>SÍGUENOS EN</h4>
+        <div class="social-icons">
+          <a href="#"><img src="../ICONS/icon facebook.png" alt="Facebook" class="social-icon" /></a>
+          <a href="#"><img src="../ICONS/instagram icon.png" alt="Instagram" class="social-icon" /></a>
         </div>
-    </main>
+      </div>
 
-    <script>
-        function goToCollection(gender) {
-            window.location.href = `collection.html?gender=${gender}`;
-        }
-    </script>
+      <!-- Información -->
+      <div class="footer-column">
+        <h3>INFORMACIÓN</h3>
+        <ul>
+          <li><a href="#">Quiénes somos</a></li>
+          <li><a href="#">Preguntas frecuentes</a></li>
+          <li><a href="#">Nuestras políticas</a></li>
+          <li><a href="#">Políticas de privacidad</a></li>
+          <li><a href="#">Contacto</a></li>
+        </ul>
+      </div>
 
-    <section class="text-section">
-        <h2>:3</h2>
-        <div class="products-grid" id="products"></div>
-    </section>
+      
+      <div class="footer-column">
+        <h3>MI CUENTA MAYORISTA</h3>
+        <ul>
+          <li><a href="#">Iniciar sesión</a></li>
+          <li><a href="#">Regístrame</a></li>
+          <li><a href="#">Mis pedidos</a></li>
+        </ul>
+      </div>
 
+    </div>
+  </footer>
 
-
-    <script>
-        document.querySelector('.search-box input').addEventListener('keypress', function (e) {
-            if (e.key === 'Enter') {
-                alert('Buscando: ' + this.value);
-            }
-        });
-
-        // Prueba rápida para verificar si el div está cargado
-        const staffContainer = document.getElementById("staff-products");
-        if (!staffContainer) {
-            alert("¡No se encontró el contenedor de Staff Picks! Revisa el HTML.");
-        } else {
-            console.log("Contenedor Staff Picks encontrado correctamente.");
-        }
-    </script>
-    <script src="../JS/app.js"></script>
 </body>
 
 </html>

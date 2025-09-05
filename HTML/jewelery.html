@@ -67,7 +67,6 @@
         <li>
           <button onclick="window.location.href='index.html'">Home</button>
         </li>
-
         <li class="dropdown">
           <button>Precios</button>
           <ul class="submenu">
@@ -83,99 +82,78 @@
             </li>
           </ul>
         </li>
-
         <li>
-          <button onclick="alert('jewelery')">jewelery</button>
+          <button onclick="goToCategory('electronics')">Electronics</button>
         </li>
         <li>
-          <button onclick="alert('electronics')">electronics</button>
+          <button onclick="window.location.href='category.html?category=electronics'">electronics</button>
         </li>
       </ul>
     </div>
   </nav>
 
-  <div id="products" class="products-grid"></div>
+  <main>
+    <h1>Jewelry Collection</h1>
+    <div id="products" class="products-grid"></div>
+  </main>
 
   <script>
     document.addEventListener("DOMContentLoaded", async () => {
       const productsContainer = document.getElementById("products");
-      const urlParams = new URLSearchParams(window.location.search);
-      const gender = urlParams.get("gender");
-      const cartBadge = document.querySelector(".cart-badge");
-
       let products = [];
+
       try {
         const res = await fetch("https://fakestoreapi.com/products");
         products = await res.json();
-      } catch (error) {
-        productsContainer.innerHTML = "<p>Error al cargar productos 😢</p>";
-        console.error(error);
-        return;
-      }
 
-      if (gender) {
-        let category = "";
-        if (gender === "men") category = "men's clothing";
-        else if (gender === "women") category = "women's clothing";
+        // Filtrar solo categoría jewelery
+        products = products.filter(p => p.category.toLowerCase() === "jewelery");
 
-        products = products.filter(p => p.category.toLowerCase() === category);
-      }
+        if (products.length === 0) {
+          productsContainer.innerHTML = "<p>No hay productos para mostrar.</p>";
+          return;
+        }
 
-      if (products.length === 0) {
-        productsContainer.innerHTML = "<p>No hay productos para mostrar.</p>";
-        return;
-      }
-
-      // Mostrar productos
-      products.forEach(p => {
-        const card = document.createElement("div");
-        card.classList.add("product-card");
-        card.innerHTML = `
-          <img src="${p.image}" alt="${p.title}">
-          <div class="product-info">
+        products.forEach(p => {
+          const card = document.createElement("div");
+          card.classList.add("product-card");
+          card.innerHTML = `
+            <img src="${p.image}" alt="${p.title}">
+            <div class="product-info">
               <h3>${p.title}</h3>
               <p>$${p.price}</p>
               <button class="add-cart-btn" data-id="${p.id}">Agregar al carrito</button>
-          </div>
-        `;
-        productsContainer.appendChild(card);
-      });
-
-      // Funcionalidad para agregar al carrito
-      document.querySelectorAll(".add-cart-btn").forEach(btn => {
-        btn.addEventListener("click", () => {
-          const productId = btn.dataset.id;
-          const product = products.find(p => p.id == productId);
-
-          let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-          const item = cart.find(p => p.id == product.id);
-          if (item) {
-            item.qty++;
-          } else {
-            cart.push({ ...product, qty: 1 });
-          }
-
-          localStorage.setItem("cart", JSON.stringify(cart));
-
-          // Actualiza contador del carrito
-          if (cartBadge) {
-            cartBadge.textContent = cart.length;
-          }
-
-          alert("Producto agregado al carrito 🛒");
+            </div>
+          `;
+          productsContainer.appendChild(card);
         });
-      });
 
-      // Mostrar cantidad actual en carrito (al cargar la página)
-      const currentCart = JSON.parse(localStorage.getItem("cart")) || [];
-      if (cartBadge) {
-        cartBadge.textContent = currentCart.length;
+        //  funcionalidad de carrito
+        document.querySelectorAll(".add-cart-btn").forEach(btn => {
+          btn.addEventListener("click", () => {
+            const productId = btn.dataset.id;
+            const product = products.find(p => p.id == productId);
+
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+            const item = cart.find(p => p.id == product.id);
+            if (item) {
+              item.qty++;
+            } else {
+              cart.push({ ...product, qty: 1 });
+            }
+
+            localStorage.setItem("cart", JSON.stringify(cart));
+            alert("Producto agregado al carrito 🛒");
+          });
+        });
+
+      } catch (error) {
+        productsContainer.innerHTML = "<p>Error al cargar productos 😢</p>";
+        console.error(error);
       }
     });
   </script>
-
-  <script src="../JS/app.js"></script>
 
   <!-- Footer -->
   <footer class="footer">
@@ -186,8 +164,8 @@
         <h3>CONTÁCTANOS</h3>
         <p><span class="icon">📞</span> (+57) 3125729799</p>
         <p>
-          <span class="icon">📍</span> Zona Franca (Santander) <br />
-          piso 6<br />
+          <span class="icon">📍</span> Zona Franca (Santander) <br>
+          piso 6<br>
           Anillo vial
         </p>
 
@@ -210,7 +188,7 @@
         </ul>
       </div>
 
-      
+     
       <div class="footer-column">
         <h3>MI CUENTA MAYORISTA</h3>
         <ul>
