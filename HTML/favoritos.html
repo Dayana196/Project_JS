@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sweet Store</title>
+  <link rel="stylesheet" href="../CSS/style.css" />
+</head>
+
+<body>
+  <div class="principal">
+    Free shipping on orders above $150 in sweet store
+  </div>
+
+  <header class="header">
+    <div class="header-content">
+
+      <section class="bar-principal">
+        <div class="social-icons">
+          <button onclick="alert('Facebook')">
+            <img src="../ICONS/icon facebook.png" alt="Facebook" class="social-icon-img" />
+          </button>
+          <button onclick="alert('WhatsApp')">
+            <img src="../ICONS/wasap icon.png" alt="WhatsApp" class="social-icon-img" />
+          </button>
+          <button onclick="alert('Instagram')">
+            <img src="../ICONS/instagram icon.png" alt="Instagram" class="social-icon-img" />
+          </button>
+        </div>
+      </section>
+
+      <div id="cart" class="cart">
+        <button class="close-cart">✖</button>
+        <h2>Carrito de compras</h2>
+        <div id="cart-items"></div>
+        <p>Total: $<span id="cart-total">0.00</span></p>
+        <button id="clear-cart">Vaciar carrito</button>
+      </div>
+
+      <div class="logo">Sweet Store</div>
+
+      <div class="header-right">
+        <div class="search-box">
+          <input type="text" placeholder="Buscar..." />
+          <i class="fas fa-search"></i>
+        </div>
+
+        <button class="login-btn" onclick="alert('Login')">
+          <img src="../ICONS/user icons.png" alt="User" class="user-icon-img" />
+          Log in
+        </button>
+
+        <button class="cart-btn" id="cart-icon">
+          <img src="../ICONS/icon carrito shop.png" alt="Cart" class="cart-icon-img" />
+          <span class="cart-badge">0</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <nav class="navigation">
+    <div class="nav-content">
+      <ul class="nav-menu">
+        <li><button onclick="window.location.href='index.html'">Home</button></li>
+        <li class="dropdown">
+          <button>Precios</button>
+          <ul class="submenu">
+            <li><button onclick="window.location.href='filtered-products.html?price=greater'">Mayor $100 (USD)</button></li>
+            <li><button onclick="window.location.href='filtered-products.html?price=less'">Menor $100(USD)</button></li>
+          </ul>
+          <li><button onclick="goToCategory('favoritos-container')">Favoritos</button></li>
+        </li>
+        <li><button onclick="goToCategory('jewelery')">jewelery</button></li>
+        <li><button onclick="goToCategory('electronics')">Electronics</button></li>
+      </ul>
+    </div>
+  </nav>
+
+ 
+
+<script>
+    // Eventos del carrito
+  document.querySelectorAll(".add-cart-btn").forEach((btn) => {
+    btn.addEventListener("click", () => addToCart(btn.dataset.id));
+  });
+
+  // Eventos de favoritos
+  document.querySelectorAll(".fav-btn").forEach((btn) => {
+    btn.addEventListener("click", () => toggleFavorito(Number(btn.dataset.id)));
+  });
+}
+let favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
+
+function toggleFavorito(id) {
+  if (favoritos.includes(id)) {
+    favoritos = favoritos.filter(favId => favId !== id);
+  } else {
+    favoritos.push(id);
+  }
+  localStorage.setItem("favoritos", JSON.stringify(favoritos));
+  displayProducts(products);  // refresca la vista con el ícono actualizado
+  renderFavoritos();
+}
+</script>
+
+<script src="../JS/app.js"></script>
